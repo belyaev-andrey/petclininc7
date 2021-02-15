@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+    <persistence-unit name="petclininc7" transaction-type="RESOURCE_LOCAL">
+
+        <class>com.company.petclininc.entity.PetType</class>
+        <class>com.company.petclininc.entity.Pet</class>
+        <class>com.company.petclininc.entity.Owner</class>
+        <class>com.company.petclininc.entity.Veterinarian</class>
+        <class>com.company.petclininc.entity.Consumable</class>
+        <class>com.company.petclininc.entity.Visit</class>
+    </persistence-unit>
+</persistence>

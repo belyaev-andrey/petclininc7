@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://visitEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.petclininc.web.screens.visit">
+    <data>
+        <instance id="visitDc"
+                  class="com.company.petclininc.entity.Visit">
+            <view extends="_local">
+                <property name="pet" view="_minimal"/>
+                <property name="veterinarian" view="_minimal"/>
+                <property name="consumables" view="_minimal">
+                    <property name="price"/>
+                </property>
+            </view>
+            <loader/>
+            <collection id="consumablesDc" property="consumables"/>
+        </instance>
+        <collection id="petsDc" class="com.company.petclininc.entity.Pet" view="_minimal">
+            <loader id="petsDl">
+                <query>
+                    <![CDATA[select e from petclininc_Pet e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="visitDc">
+            <column width="350px">
+                <lookupPickerField id="petField" optionsContainer="petsDc" property="pet"/>
+                <pickerField id="veterinarianField" property="veterinarian">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </pickerField>
+                <dateField id="dateField" property="date"/>
+                <textField id="durationField" property="duration"/>
+                <textArea id="descriptionField" property="description" rows="5"/>
+                <textField id="amountField" property="amount"/>
+            </column>
+        </form>
+        <groupBox id="consumablesBox" caption="msg://com.company.petclininc.entity/Visit.consumables">
+            <table id="consumablesTable" dataContainer="consumablesDc" width="100%" height="200px">
+                <actions>
+                    <action id="add" type="add"/>
+                    <action id="exclude" type="exclude"/>
+                </actions>
+                <columns>
+                    <column id="title"/>
+                    <column id="price"/>
+                </columns>
+                <buttonsPanel>
+                    <button action="consumablesTable.add"/>
+                    <button action="consumablesTable.exclude"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
