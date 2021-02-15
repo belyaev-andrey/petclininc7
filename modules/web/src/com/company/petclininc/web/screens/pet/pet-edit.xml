@@ -9,8 +9,9 @@
             <view extends="_local">
                 <property name="petType" view="_minimal"/>
                 <property name="owner" view="_minimal"/>
+                <property name="category" view="_minimal"/>
             </view>
-            <loader/>
+            <loader dynamicAttributes="true"/>
         </instance>
         <collection id="petTypesDc" class="com.company.petclininc.entity.PetType" view="_minimal">
             <loader id="petTypesDl">
@@ -35,6 +36,7 @@
                 <textField id="nameField" property="name"/>
                 <lookupPickerField id="petTypeField" optionsContainer="petTypesDc" property="petType"/>
                 <lookupPickerField id="ownerField" optionsContainer="ownersDc" property="owner"/>
+                <dynamicAttributesPanel dataContainer="petDc" width="100%"/>
             </column>
         </form>
         <hbox id="editActions" spacing="true">

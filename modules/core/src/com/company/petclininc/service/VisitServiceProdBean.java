@@ -7,9 +7,9 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 
-@Profile("dev")
+@Profile("prod")
 @Service(VisitService.NAME)
-public class VisitServiceBean implements VisitService {
+public class VisitServiceProdBean implements VisitService {
 
     @Override
     public BigDecimal calculateAmount(Visit visit) {
@@ -25,6 +25,6 @@ public class VisitServiceBean implements VisitService {
             }
         }
 
-        return amount;
+        return amount.add(BigDecimal.TEN);
     }
 }

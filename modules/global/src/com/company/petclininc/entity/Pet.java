@@ -1,6 +1,8 @@
 package com.company.petclininc.entity;
 
 import com.haulmont.chile.core.annotations.NamePattern;
+import com.haulmont.cuba.core.entity.Categorized;
+import com.haulmont.cuba.core.entity.Category;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.entity.annotation.Lookup;
 import com.haulmont.cuba.core.entity.annotation.LookupType;
@@ -11,7 +13,7 @@ import javax.validation.constraints.NotNull;
 @Table(name = "PETCLININC_PET")
 @Entity(name = "petclininc_Pet")
 @NamePattern("%s (%s)|name,owner")
-public class Pet extends StandardEntity {
+public class Pet extends StandardEntity implements Categorized {
     private static final long serialVersionUID = 3076508721652547297L;
 
     @NotNull
@@ -28,6 +30,10 @@ public class Pet extends StandardEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "OWNER_ID")
     private Owner owner;
+
+    @JoinColumn(name = "CATEGORY_ID")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Category category;
 
     public Owner getOwner() {
         return owner;
@@ -51,5 +57,15 @@ public class Pet extends StandardEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public Category getCategory() {
+        return category;
+    }
+
+    @Override
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

@@ -5,4 +5,12 @@
     <!-- Annotation-based beans -->
     <context:component-scan base-package="com.company.petclininc"/>
 
+    <beans profile="dev">
+        <bean id="cuba_FileStorage" class="com.haulmont.cuba.core.app.filestorage.FileStorage"/>
+    </beans>
+
+    <beans profile="prod">
+        <bean id="cuba_FileStorage" class="com.haulmont.cuba.core.app.filestorage.FileStorage"/>
+    </beans>
+
 </beans>

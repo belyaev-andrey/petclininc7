@@ -12,6 +12,7 @@ create table PETCLININC_PET (
     NAME varchar(255) not null,
     PET_TYPE_ID uuid not null,
     OWNER_ID uuid,
+    CATEGORY_ID uuid,
     --
     primary key (ID)
 )^

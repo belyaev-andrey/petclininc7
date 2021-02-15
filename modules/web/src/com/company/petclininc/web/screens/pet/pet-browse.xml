@@ -10,6 +10,7 @@
             <view extends="_local">
                 <property name="petType" view="_minimal"/>
                 <property name="owner" view="_minimal"/>
+                <property name="category" view="_minimal"/>
             </view>
             <loader id="petsDl">
                 <query>
@@ -39,6 +40,7 @@
                 <column id="name"/>
                 <column id="petType"/>
                 <column id="owner"/>
+                <column id="category"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"
