@@ -16,6 +16,11 @@ import javax.inject.Inject;
 @LoadDataBeforeShow
 public class VisitEdit extends StandardEditor<Visit> {
 
+    private Visit visit;
+
+    public void setVisit(Visit visit) {
+        this.visit = visit;
+    }
 
     @Inject
     private VisitService visitService;

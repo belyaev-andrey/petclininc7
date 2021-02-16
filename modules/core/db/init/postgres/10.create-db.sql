@@ -34,6 +34,7 @@ create table PETCLININC_VISIT (
     DURATION integer not null,
     DESCRIPTION text,
     AMOUNT decimal(19, 2),
+    NUMBER_ bigint,
     --
     primary key (ID)
 )^

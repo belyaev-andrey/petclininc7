@@ -7,5 +7,7 @@
         <item screen="petclininc_Veterinarian.browse" caption="mainMsg://menu_config.petclininc_Veterinarian.browse"/>
         <item screen="petclininc_Consumable.browse" caption="mainMsg://menu_config.petclininc_Consumable.browse"/>
         <item screen="petclininc_Visit.browse" caption="mainMsg://menu_config.petclininc_Visit.browse"/>
+        <item screen="petclininc_UsedConsumablesScreen"
+              caption="mainMsg://menu_config.petclininc_UsedConsumablesScreen"/>
     </menu>
 </menu-config>

@@ -11,9 +11,7 @@
         </instance>
     </data>
     <dialogMode height="AUTO"
-                width="AUTO"
-                modal="true"
-                forceDialog="true"/>
+                width="AUTO"/>
     <layout expand="editActions" spacing="true">
         <form id="form" dataContainer="petTypeDc">
             <column width="350px">
