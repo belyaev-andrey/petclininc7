@@ -37,9 +37,18 @@
                     </actions>
                 </pickerField>
                 <dateField id="dateField" property="date"/>
-                <textField id="durationField" property="duration"/>
+                <textField id="durationField" property="duration" editable="false"/>
                 <textArea id="descriptionField" property="description" rows="5"/>
-                <textField id="amountField" property="amount"/>
+                <jsComponent id="descriptionEdit"
+                             caption="msg://description" width="250px"
+                             initFunctionName="com_company_petclinic_web_screens_visit_edit">
+                    <dependencies>
+                        <dependency path="webjar://quill:dist/quill.js" type="JAVASCRIPT"/>
+                        <dependency path="webjar://quill:dist/quill.snow.css" type="STYLESHEET"/>
+                        <dependency path="vaadin://quill/quill-connector.js" type="JAVASCRIPT"/>
+                    </dependencies>
+                </jsComponent>
+                <textField id="amountField" property="amount" editable="false"/>
             </column>
         </form>
         <groupBox id="consumablesBox" caption="msg://com.company.petclininc.entity/Visit.consumables">
