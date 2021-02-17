@@ -42,8 +42,6 @@ public class VisitEdit extends StandardEditor<Visit> {
         descriptionEdit.callFunction("setText", getEditedEntity().getDescription());
     }
 
-
-
     @Subscribe(id = "visitDc", target = Target.DATA_CONTAINER)
     public void onVisitDcItemPropertyChange(InstanceContainer.ItemPropertyChangeEvent<Visit> event) {
         if (event.getProperty().equals("duration")) {
