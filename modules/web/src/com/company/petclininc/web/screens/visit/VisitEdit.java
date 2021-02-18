@@ -34,7 +34,6 @@ public class VisitEdit extends StandardEditor<Visit> {
             String value = javaScriptCallbackEvent.getArguments().getString(0);
             getEditedEntity().setDescription(value);
         });
-
     }
 
     @Subscribe

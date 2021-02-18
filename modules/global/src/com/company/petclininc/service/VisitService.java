@@ -13,4 +13,6 @@ public interface VisitService {
 
     List<Consumable> getUsedConsumables();
 
+    void setVisitStatus(Visit visit, String status);
+
 }

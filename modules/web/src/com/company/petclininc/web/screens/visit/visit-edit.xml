@@ -29,6 +29,7 @@
     <layout expand="editActions" spacing="true">
         <form id="form" dataContainer="visitDc">
             <column width="350px">
+                <textField id="numberField" property="number" editable="false"/>
                 <lookupPickerField id="petField" optionsContainer="petsDc" property="pet"/>
                 <pickerField id="veterinarianField" property="veterinarian">
                     <actions>
@@ -49,6 +50,7 @@
                     </dependencies>
                 </jsComponent>
                 <textField id="amountField" property="amount" editable="false"/>
+                <textField id="statusField" property="status" editable="false"/>
             </column>
         </form>
         <groupBox id="consumablesBox" caption="msg://com.company.petclininc.entity/Visit.consumables">

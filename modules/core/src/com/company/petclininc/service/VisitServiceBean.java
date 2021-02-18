@@ -23,6 +23,8 @@ public class VisitServiceBean implements VisitService {
 
     @Inject
     private Persistence persistence;
+    @Inject
+    private DataManager dataManager;
 
     @Override
     public BigDecimal calculateAmount(Visit visit) {
@@ -49,5 +51,15 @@ public class VisitServiceBean implements VisitService {
                 "where @between(c.createTs, now-7, now+1, day)", Consumable.class);
         query.setViewName(View.LOCAL);
         return query.getResultList();
+    }
+
+    @Override
+    public void setVisitStatus(Visit visit, String status) {
+        final Visit reload = dataManager.reload(visit, View.LOCAL);
+        if (reload.getDescription().contains("?")) {
+            throw new RuntimeException("Visit is not correct");
+        }
+        reload.setStatus(status);
+        dataManager.commit(reload);
     }
 }

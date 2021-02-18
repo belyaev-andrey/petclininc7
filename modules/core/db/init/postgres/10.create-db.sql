@@ -35,6 +35,7 @@ create table PETCLININC_VISIT (
     DESCRIPTION text,
     AMOUNT decimal(19, 2),
     NUMBER_ bigint,
+    STATUS varchar(255),
     --
     primary key (ID)
 )^

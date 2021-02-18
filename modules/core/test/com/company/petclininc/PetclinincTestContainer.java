@@ -13,7 +13,9 @@ public class PetclinincTestContainer extends TestContainer {
         //noinspection ArraysAsListWithZeroOrOneArgument
         appComponents = Arrays.asList(
                 "com.haulmont.cuba",
-                "com.haulmont.addon.restapi");
+                "com.haulmont.addon.restapi",
+                "com.haulmont.addon.bproc",
+                "com.haulmont.addon.helium");
         appPropertiesFiles = Arrays.asList(
                 // List the files defined in your web.xml
                 // in appPropertiesConfig context parameter of the core module

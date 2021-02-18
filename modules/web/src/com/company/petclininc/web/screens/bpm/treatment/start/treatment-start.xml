@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://treatmentStart.caption"
+        messagesPack="com.company.petclininc.web.screens.bpm.treatment.start">
+    <data>
+        <collection id="usersDc" class="com.haulmont.cuba.security.entity.User">
+            <view extends="_local"/>
+            <loader id="usersDl">
+                <query>
+                    <![CDATA[select e from sec$User e]]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="visitsDc" class="com.company.petclininc.entity.Visit">
+            <view extends="_local">
+                <property name="pet" view="_minimal"/>
+            </view>
+            <loader id="visitsDl">
+                <query>
+                    <![CDATA[select e from petclininc_Visit e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <layout>
+        <form id="treatmentForm">
+            <column width="400px">
+                <lookupField id="visitLookup" optionsContainer="visitsDc" caption="msg://visit"/>
+                <lookupField id="doctorLookup" optionsContainer="usersDc" caption="msg://doctor"/>
+                <lookupField id="nurseLookup" optionsContainer="usersDc" caption="msg://nurse"/>
+                <textArea id="treatmentDescription" caption="msg://treatment.description"/>
+            </column>
+        </form>
+        <buttonsPanel>
+            <button id="startTreatment" caption="msg://start.treatment" icon="PLAY"/>
+        </buttonsPanel>
+    </layout>
+</window>

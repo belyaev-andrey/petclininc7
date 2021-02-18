@@ -61,6 +61,17 @@ public class Visit extends StandardEntity {
     @Column(name = "NUMBER_")
     private Long number;
 
+    @Column(name = "STATUS")
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @MetaProperty(related = {"date", "duration"})
     public LocalDateTime getEndDate() {
         return date.plusHours(duration);
@@ -141,6 +152,7 @@ public class Visit extends StandardEntity {
         duration = 1;
         amount = BigDecimal.ZERO;
         date = LocalDateTime.now();
+        status = "New";
     }
 
 }

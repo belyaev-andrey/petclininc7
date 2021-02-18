@@ -34,4 +34,9 @@ public class VisitServiceProdBean implements VisitService {
     public List<Consumable> getUsedConsumables() {
         return Collections.emptyList();
     }
+
+    @Override
+    public void setVisitStatus(Visit visit, String status) {
+
+    }
 }

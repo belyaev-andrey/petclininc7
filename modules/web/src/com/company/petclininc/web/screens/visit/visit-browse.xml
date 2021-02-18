@@ -42,6 +42,9 @@
                 <column id="duration"/>
                 <column id="description"/>
                 <column id="amount"/>
+                <column id="number"/>
+                <column id="endDate"/>
+                <column id="status"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"
