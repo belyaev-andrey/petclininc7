@@ -15,7 +15,8 @@ public class PetclinincTestContainer extends TestContainer {
                 "com.haulmont.cuba",
                 "com.haulmont.addon.restapi",
                 "com.haulmont.addon.bproc",
-                "com.haulmont.addon.helium");
+                "com.haulmont.addon.helium",
+                "com.haulmont.addon.zookeeper");
         appPropertiesFiles = Arrays.asList(
                 // List the files defined in your web.xml
                 // in appPropertiesConfig context parameter of the core module

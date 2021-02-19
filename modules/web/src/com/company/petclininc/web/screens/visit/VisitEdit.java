@@ -3,6 +3,9 @@ package com.company.petclininc.web.screens.visit;
 import com.company.petclininc.entity.Consumable;
 import com.company.petclininc.service.VisitService;
 import com.haulmont.bali.util.ParamsMap;
+import com.haulmont.cuba.core.app.EntitySnapshotService;
+import com.haulmont.cuba.core.global.EntityStates;
+import com.haulmont.cuba.gui.app.core.entitydiff.EntityDiffViewer;
 import com.haulmont.cuba.gui.model.CollectionChangeType;
 import com.haulmont.cuba.gui.model.CollectionContainer;
 import com.haulmont.cuba.gui.model.InstanceContainer;
@@ -23,6 +26,14 @@ public class VisitEdit extends StandardEditor<Visit> {
     private VisitService visitService;
     @Inject
     private JavaScriptComponent descriptionEdit;
+    @Inject
+    private EntitySnapshotService entitySnapshotService;
+    @Inject
+    private InstanceContainer<Visit> visitDc;
+    @Inject
+    private EntityDiffViewer diff;
+    @Inject
+    private EntityStates entityStates;
 
     @Subscribe
     public void onInit(InitEvent event) {
@@ -35,6 +46,21 @@ public class VisitEdit extends StandardEditor<Visit> {
             getEditedEntity().setDescription(value);
         });
     }
+
+    @Subscribe
+    public void onAfterShow(AfterShowEvent event) {
+        final Visit entity = getEditedEntity();
+        if (!entityStates.isNew(entity)) {
+            diff.loadVersions(entity);
+        }
+    }
+
+    @Subscribe
+    public void onAfterCommitChanges(AfterCommitChangesEvent event) {
+        entitySnapshotService.createSnapshot(visitDc.getItem(), visitDc.getView());
+    }
+
+
 
     @Subscribe
     public void onBeforeShow(BeforeShowEvent event) {
