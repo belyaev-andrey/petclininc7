@@ -8,6 +8,7 @@ import com.haulmont.cuba.core.Transaction;
 import com.haulmont.cuba.core.TypedQuery;
 import com.haulmont.cuba.core.global.DataManager;
 import com.haulmont.cuba.core.global.View;
+import org.flowable.engine.delegate.BpmnError;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -57,7 +58,7 @@ public class VisitServiceBean implements VisitService {
     public void setVisitStatus(Visit visit, String status) {
         final Visit reload = dataManager.reload(visit, View.LOCAL);
         if (reload.getDescription().contains("?")) {
-            throw new RuntimeException("Visit is not correct");
+            throw new BpmnError("Visit is not correct");
         }
         reload.setStatus(status);
         dataManager.commit(reload);
