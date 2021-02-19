@@ -2,6 +2,7 @@ package com.company.petclininc.service;
 
 import com.company.petclininc.entity.Consumable;
 import com.company.petclininc.entity.Visit;
+import com.google.common.base.Strings;
 import com.haulmont.cuba.core.EntityManager;
 import com.haulmont.cuba.core.Persistence;
 import com.haulmont.cuba.core.Transaction;
@@ -57,7 +58,8 @@ public class VisitServiceBean implements VisitService {
     @Override
     public void setVisitStatus(Visit visit, String status) {
         final Visit reload = dataManager.reload(visit, View.LOCAL);
-        if (reload.getDescription().contains("?")) {
+        final String description = reload.getDescription();
+        if (!Strings.isNullOrEmpty(description) && description.contains("?")) {
             throw new BpmnError("Visit is not correct");
         }
         reload.setStatus(status);
